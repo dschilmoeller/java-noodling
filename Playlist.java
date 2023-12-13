@@ -1,3 +1,6 @@
+// Arrays, accessing and manipulating.
+// Rather, ArrayLists.
+
 import java.util.ArrayList;
 
 class Playlist {
