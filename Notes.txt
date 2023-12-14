@@ -15,3 +15,15 @@ equals() for comparing Strings and other objects
 Using + to concatenate Strings
 The final keyword which makes variables unchangeable
 
+2D Arrays: 
+int[][] intArray1;
+intArray1 = new int[row][column];
+so:
+int[][] intArray2;
+intArray2 = new int[3][5];
+produces
+[
+    [0,0,0,0,0]
+    [0,0,0,0,0]
+    [0,0,0,0,0]
+]
