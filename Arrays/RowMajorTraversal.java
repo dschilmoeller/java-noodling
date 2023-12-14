@@ -1,3 +1,4 @@
+package Arrays;
 public class RowMajorTraversal {
 	public static void main(String[] args) {
 		// Given runner lap data

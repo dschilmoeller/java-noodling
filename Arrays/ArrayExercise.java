@@ -1,3 +1,5 @@
+package Arrays;
+
 public class ArrayExercise {
     public static void main(String[] args) {
 

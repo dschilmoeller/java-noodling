@@ -1,3 +1,4 @@
+package Arrays;
 class SubArrayTransversal {
 	public static void main(String[] args) {
 		//Given the provided 2d array
