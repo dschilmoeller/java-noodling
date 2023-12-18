@@ -1,0 +1,29 @@
+//Option 1: Pass file path/name directly to FileWriter
+FileWriter output1 = new FileWriter("output.txt");
+
+// Option 2: Use File object to pass file info to FileWriter
+// Save file path that has been passed in by the user into a string variable.
+String fileName = args[0];
+// Pass path to File object
+File outputFile = new File(fileName);
+// Pass File object to FileWriter
+FileWriter output2 = new FileWriter(outputFile);
+
+// Declare FileWriter
+FileWriter output = new FileWriter("output.txt");
+
+// Declare statement
+String statement = "Hello World!";
+
+// Option 1:
+// Write all contents to file
+output.write(statement);
+
+// Option 2:
+// If you want to write specific portions of a string to a file you may choose to use the following statement
+// output.write(String str, int offset, int length);
+output.write(statement, 0, 5);
+// Writes only "Hello" to the file
+
+// Close
+output.close();
