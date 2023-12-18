@@ -10,14 +10,32 @@ public class Car implements Serializable {
   private String make;
   private int year;
   private static final long serialVersionUID = 1L;
+  private Engine engine;
 
   public Car(String make, int year) {
     this.make = make;
     this.year = year;
+    this.engine = new Engine(2.4, 6);
   }
 
+ private void writeObject(ObjectOutputStream stream) throws IOException {
+    stream.writeObject(this.make);
+    stream.writeInt(this.year);
+    stream.writeDouble(this.engine.getLiters());
+    stream.writeInt(this.engine.getCylinders());
+  }
+ 
+  private void readObject(ObjectInputStream stream) throws IOException, ClassNotFoundException {
+   this.make = (String) stream.readObject();
+   this.year = (int) stream.readInt();
+   double liters = (double) stream.readDouble();
+   int cylinders = (int) stream.readInt();
+   this.engine = new Engine(liters, cylinders);
+  }    
+
+
   public String toString(){
-    return String.format("Car make is: %s, Car year is: %d", this.make, this.year);
+    return String.format("Car make is: %s, Car year is: %d, %s", this.make, this.year, this.engine);
   }
 
   public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
@@ -34,9 +52,17 @@ public class Car implements Serializable {
     Car toyotaCopy = (Car) objectInputStream.readObject();
     Car hondaCopy = (Car) objectInputStream.readObject();
 
-    boolean isSameObject = toyota == toyotaCopy;
-    System.out.println(toyotaCopy);
-    System.out.println(toyota);
-    System.out.println(isSameObject);
+    boolean isSameObject = toyotaCopy == toyota;
+    System.out.println("Toyota (Copy) - "+toyotaCopy);
+    System.out.println("Toyota (Original) - "+toyota);
+    System.out.println("Is same object: "+ isSameObject);
+
+    boolean isSameHonda = hondaCopy == honda;
+    System.out.println("Toyota (Copy) - "+hondaCopy);
+    System.out.println("Toyota (Original) - "+honda);
+    System.out.println("Is same object: "+ isSameHonda);
+
+    objectInputStream.close();
+    objectOutputStream.close();
   }
 }
