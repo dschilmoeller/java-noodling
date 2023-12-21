@@ -27,3 +27,17 @@ produces
     [0,0,0,0,0]
     [0,0,0,0,0]
 ]
+
+See:
+public class Circle {
+    private int x, y, radius;
+    public void setOrigin(int x, int y) {
+        ...
+    }
+}
+Circle is a class
+setOrigin is a method with PARAMETERS x, y
+private int x, y, radius are FIELDS
+There is no constructor (?)
+Within the {} brackets of setOrigin (the ...) using x / y will refer to the PARAMETER, NOT the FIELDS
+Within the {} brackets of setOrigin (the ...) using this.x or this.y will refer to the FIELDS

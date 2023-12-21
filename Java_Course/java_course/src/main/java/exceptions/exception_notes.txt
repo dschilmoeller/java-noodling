@@ -1,0 +1,35 @@
+Exceptions
+    checked exceptions -
+    some methods are written as
+    public boolean createNewFile() throws IOException {}
+These will warn in the IDE / compiler that they must be written inside a try block due to a high likelihood (?) of throwing
+an IO Exception.
+This is called a 'Checked Exception', and will be caught by the compiler.
+
+Others, for instance, like going through an indexed object and selecting a non-existent index, throw an 'unchecked exception'.
+
+Another example of unchecked exception:
+Scanner console = new Scaner(System.in);
+double input = console.nextDouble();
+-> user enters a String.
+-> unchecked exception.
+
+These are also known as run-time exceptions.
+
+Using a check exception is generally used when there's a possibility of recovery - for example, creating a directory if no
+such directory exists.
+
+Unchecked exceptions are generally...less recoverable.
+
+Handling Multiple exceptions:
+    -Polymorphism
+    -Multiple Catch Blocks
+    -Multiple exceptions in single catch block
+
+Polymorphism:
+    Superclass can be used to catch broader exceptions.
+    e.g.
+        } catch(Exception e){
+            System.out.println("Exception: " + e);
+        }
+by not specifying the kind of exception, a broader range of exceptions can be caught.

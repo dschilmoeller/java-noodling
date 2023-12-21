@@ -1,0 +1,51 @@
+Interfaces
+    Stateless construct with abstract behaviors.
+    Similar to an abstract class - but are purely abstract.
+    ergo, no constructors; field values cannot be changed (they are final).
+    Methods in an interface are by default abstract; they effectively have the abstract keyword in front of them.
+
+Classes can implement multiple interfaces to achieve multiple inheritances.
+    -> this is a way around having to create (n)sub-classes to do multiple inheritances.
+
+example:
+    public class ElectronicBook implements Product, DigitalFile{
+        // implement all abstract methods from Product
+        // implement all abstract methods from DigitalFile
+        // OR
+        // ElectronicBook must be abstract.
+    }
+
+Same signature?
+eg.
+interface Product {String getSize(); }
+interface DigitalFile { String getSize(); }
+public class ElectronicBook implements Product, DigitalFile{
+    public String getSize() {} // this is fine.
+}
+
+However!
+
+interface Product {String getSize(); }
+interface DigitalFile { byte getSize(); }
+public class ElectronicBook implements Product, DigitalFile{
+    public String getSize() {} // this will throw an error. The return type is not part of the signature - only the
+    // method name and params.
+}
+
+interfaces can contain, besides abstract methods, default and static methods.
+    Default - see example on adding Get and Set price.
+    Static - methods available without an instance.
+
+Static methods -
+    interface methods that contain implementation but are not inherited by implementing classes - they therefore cannot be overwritten.
+    THEY ARE NOT AVAILABLE in the implementing class.
+
+
+Summary:
+    can't be instantiated
+    default to public, abstract
+    implemented by classes, can be extended by other interfaces
+    implementing non-abstract class must implement all abstract methods.
+    default and static methods allowed. But are weird.
+
+

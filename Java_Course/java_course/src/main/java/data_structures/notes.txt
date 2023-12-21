@@ -1,0 +1,27 @@
+Collections
+    common types:
+        Set
+            unordered collection of unique object.
+            e.g. Deck of cards - 52 unique cards.
+        List
+            ordered elements accessible by position; can contain duplicates.
+            e.g. Call History - in order, can have duplicates.
+        Queue
+            ordered elements that are processed in the order in which they are added.
+            useful when <doing a thing> to a list on FIFO principles, e.g. dealing with a line.
+        Map
+            unordered unique key-value pairs.
+            Does NOT inherit from the collection interface.
+            Similar enough to be generally included in collections.
+            Iterator not available - use entrySet() - see demo.
+
+iterators are one way to loop through Set/List/Queue; part of collection framework so Map does not have direct access to it. See map demo for more info.
+see setDemo, mapDemo();
+
+Enhanced for loop - see listDemo(), mapDemo();
+Note this is where the List<String> and such begins.
+
+forEach() -
+    available on every collection, & Maps!
+    currently preferred method (maybe. Might be dated at this point)
+

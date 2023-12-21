@@ -1,0 +1,40 @@
+This may make sense some day.
+
+Functional Interface
+    interface with a single abstract method which can be implemented by lambda expressions and method references
+e.g.
+    List countries = List.of("Australia", "Russia", "Turkey");
+    Consumer print = c -> System.out.println(c);
+    countries.forEach(print) -> passes each country to the method in print (System.out.println w/ one arg between the parentheses)
+    print.accept("Hello World") -> passes "hello world" to 'c', above.
+
+Other common interfaces:
+Consumer - single arg, no result
+Supplier - no args, returns result
+Predicate - one arg, returns bool result
+Function - one arg, returns result
+UnaryOperator - one arg, returns result of same type
+BinaryOperator - two args of same type, returns result of same type.
+
+Abstract Methods -> returning generic types such as T, u.
+void accept(T t)
+T get()
+boolean test(T t)
+R apply(T t)
+T apply(T t)
+T apply(T t, T u)
+
+Given these and the variations on them, lambda expressions should match these functions.
+Function<Integer, Integer> square = (n) -> n * n;
+Function<Integer, Integer> add = (n) -> n + n;
+square.andThen(add).apply(5); // returns 50 by squaring 5 (25) and then adding 25 + 25 = 50.
+// apply is the input you want to use.
+
+Creating a functional interface:
+Layout:
+
+@FunctionalInterface
+public interface MyInterface {
+    int add(int num1, int num2, int num3);
+}
+

@@ -1,0 +1,25 @@
+Abstraction
+    Abstract classes are designed to be implemented by their subclasses.
+    e.g.
+        Shape as an abstraction. Designed to be extended; they are not instantiated by themselves.
+        Rectangle, Square, Circle would be classes that extend shape.
+        Shape could have some behaviors.
+
+    Demo:
+    public abstract class Shape {}
+
+    Abstract methods
+        Implementation of a method should exist, but may vary from subclass to subclass.
+
+    Demo:
+        abstract double calculateArea();
+
+    The method above would vary depending on what the shape is (circle, square, etc) but all subclasses should have
+    some version of the calculateArea() method.
+
+    By nature, abstract classes cannot be final. They can be part of a sealed/non-sealed chain, though it feels unlikely.
+    They are meant to be TEMPLATES for future classes.
+
+    Subclasses can themselves be abstract; this obviates the need to implement every method from the parent class.
+        Again, this is somewhat unusual, since the subclass would then be more used as a template and any of it's children
+        (for clarity, subsubclass) would be required to implement all of class and subclass methods(?)
